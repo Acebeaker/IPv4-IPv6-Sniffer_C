@@ -1,0 +1,4 @@
+/tmp/ccMREDRF.o: En la función `main':
+main.c:(.text+0x340): referencia a `pcap_open_live' sin definir
+main.c:(.text+0x396): referencia a `pcap_loop' sin definir
+collect2: error: ld returned 1 exit status
