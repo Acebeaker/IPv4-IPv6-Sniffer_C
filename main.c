@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 {
     char errbuff[PCAP_ERRBUF_SIZE];
     pcap_t *handleloop;
-    handleloop = pcap_open_live("enp0s9",LENGTH_CAPTURE,1,1000,errbuff);
+    handleloop = pcap_open_live("enp0s3",LENGTH_CAPTURE,1,1000,errbuff);
     if(handleloop == NULL){
         perror(errbuff);
         exit(EXIT_FAILURE);
