@@ -2,9 +2,10 @@
 #include <netinet/in.h>
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
-#include "decodificadorTCP.c"
-#include "decodificadorUDP.c"
-#include "decodificadorICMP.c"
+#include "decodificadores.h"
+//#include "decodificadorTCP.c"
+//#include "decodificadorUDP.c"
+//#include "decodificadorICMP.c"
 
 int ip_decoder(const u_char *bytes, bpf_u_int32 dataLength)
 {

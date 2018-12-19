@@ -1,7 +1,7 @@
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
-#include<netinet/icmp6.h>
-
+#include <netinet/icmp6.h>
+#include "decodificadores.h"
 
 void ICMPv6decoder(const u_char *bytes, int size)
 {

@@ -3,8 +3,9 @@
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
 #include </usr/include/netinet/ip6.h>
-#include "decodificadorICMPv6.c"
-//#include "decodificadorUDP.c"
+#include "decodificadores.h"
+//#include "decodificadorICMPv6.c"
+
 
 void print_ipv6();
 

@@ -2,9 +2,10 @@
 #include <netinet/ether.h>
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
-#include "decodificadorIPV4.c"
-#include "decodificadorIPV6.c"
-#include "decodificadorARP.c"
+#include "decodificadores.h"
+//#include "decodificadorIPV4.c"
+//#include "decodificadorIPV6.c"
+//#include "decodificadorARP.c"
 
 
 int ethernet_decoder(const u_char *bytes, bpf_u_int32 dataLength)

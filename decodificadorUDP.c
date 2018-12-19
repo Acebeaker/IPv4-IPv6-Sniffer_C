@@ -1,6 +1,7 @@
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
 #include<netinet/udp.h>
+#include "decodificadores.h"
 
 void UDPdecoder(const u_char *Buffer , int Size)
 {

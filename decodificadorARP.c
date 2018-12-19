@@ -2,6 +2,9 @@
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
 #include <net/if_arp.h>
+#include "decodificadores.h"
+
+
 
 int arpDecoder(const u_char *bytes, bpf_u_int32 dataLength)
 {

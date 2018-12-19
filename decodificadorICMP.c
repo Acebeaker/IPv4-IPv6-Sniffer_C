@@ -1,7 +1,7 @@
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
 #include<netinet/ip_icmp.h>
-
+#include "decodificadores.h"
 
 void ICMPdecoder(const u_char * Buffer , int Size)
 {

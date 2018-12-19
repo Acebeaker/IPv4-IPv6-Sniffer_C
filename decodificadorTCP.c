@@ -1,6 +1,7 @@
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
 #include<netinet/tcp.h>
+#include "decodificadores.h"
 
 void TCPdecoder(const u_char * Buffer, int Size)
 {
