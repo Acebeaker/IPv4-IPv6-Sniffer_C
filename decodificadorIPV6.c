@@ -14,6 +14,10 @@ char destIP6[40];
 
 void ip6Decoder (const u_char *bytes, bpf_u_int32 dataLength){
 
+  FILE *Register;
+  Register = fopen ( "registroTrafico.csv", "a" );
+
+
   printf("\n***************************** IPv6 *****************************\n\n");
     struct ip6_hdr *ipv6_header = (struct ip6_hdr*)(bytes);
     bzero(sourIP6,sizeof(sourIP6));
@@ -30,6 +34,10 @@ void ip6Decoder (const u_char *bytes, bpf_u_int32 dataLength){
     printf("Source Address: %s \n", sourIP6);
     printf("Destination Address: %s \n", destIP6);
 
+
+    //fwrite(Direccion , sizeof(char), strlen(Direccion), Register);
+    fprintf(Register, "%s;", sourIP6);
+    fclose(Register);
     switch(nextheader){
       	//TCP
       	case IPPROTO_TCP:

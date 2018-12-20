@@ -5,6 +5,7 @@
 
 void ICMPdecoder(const u_char * Buffer , int Size)
 {
+
     unsigned short iphdrlen;
 
     /*struct iphdr *iph = (struct iphdr *)(Buffer  + sizeof(struct ethhdr));
@@ -13,7 +14,10 @@ void ICMPdecoder(const u_char * Buffer , int Size)
     struct icmphdr *icmph = (struct icmphdr *)(Buffer);
 
     //int header_size =  sizeof(struct ethhdr) + iphdrlen + sizeof icmph;
-
+    FILE *Register;
+    Register = fopen ( "registroTrafico.csv", "a" );
+    fprintf(Register, "ICMP;%ld;\n",Size - sizeof(*icmph));
+    fclose(Register);
     printf("\n\n***********************ICMP Packet*************************\n");
 
     //print_ip_header(Buffer , Size);

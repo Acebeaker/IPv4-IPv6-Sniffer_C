@@ -15,7 +15,10 @@ void ICMPv6decoder(const u_char *bytes, int size)
 
     //get and print out payload data
 
-
+    FILE *Register;
+    Register = fopen ( "registroTrafico.csv", "a" );
+    fprintf(Register, "ICMPv6;%ld;\n", size - sizeof(*header_icmp6));
+    fclose(Register);
 
     printf("ICMPv6 Header\n");
     printf("   |-Type : %d",(unsigned int)(header_icmp6->icmp6_type));

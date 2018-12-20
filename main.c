@@ -35,6 +35,10 @@ void pcap_handler_callback(u_char * arg, const struct pcap_pkthdr *h, const u_ch
 
 int main(int argc, char **argv)
 {
+    FILE *Register;
+	  Register = fopen ( "registroTrafico.csv", "w" );
+    fprintf(Register, "Source Addres;Protocol;Data Length\n");
+    fclose(Register);
     char errbuff[PCAP_ERRBUF_SIZE];
     pcap_t *handleloop;
     handleloop = pcap_open_live("enp0s3",LENGTH_CAPTURE,1,1000,errbuff);
@@ -50,7 +54,7 @@ void pcap_handler_callback(u_char * arg, const struct pcap_pkthdr *h, const u_ch
     printf("\nLongitud de la captura: %u\nLongitud del Paquete: %u\n", h->caplen, h->len);
     //if ((h->caplen) == (h->len))
     //{
-    	ethernet_decoder(bytes, h->len);
+    	ethernet_decoder(bytes, h->caplen);
     //}
 
 }

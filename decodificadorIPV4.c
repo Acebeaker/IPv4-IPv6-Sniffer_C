@@ -2,13 +2,18 @@
 #include <netinet/in.h>
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
+#include <string.h>
 #include "decodificadores.h"
 //#include "decodificadorTCP.c"
 //#include "decodificadorUDP.c"
 //#include "decodificadorICMP.c"
 
+
 int ip_decoder(const u_char *bytes, bpf_u_int32 dataLength)
 {
+
+  FILE *Register;
+  Register = fopen ( "registroTrafico.csv", "a" );
 
   printf("\n***************************** IP *****************************\n\n");
 
@@ -26,6 +31,8 @@ int ip_decoder(const u_char *bytes, bpf_u_int32 dataLength)
   printf("Source Address:   %s\n", inet_ntoa(ipStruct->ip_src));
   printf("Destination Address:  %s\n", inet_ntoa(ipStruct->ip_dst));
 
+  fprintf(Register, "%s;",inet_ntoa(ipStruct->ip_src));
+  fclose(Register);
   switch(ipStruct->ip_p)
   {
     case IPPROTO_ICMP:

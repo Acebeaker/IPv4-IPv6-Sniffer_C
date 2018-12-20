@@ -14,6 +14,12 @@ void TCPdecoder(const u_char * Buffer, int Size)
 
     int header_size =  sizeof(struct ethhdr) + iphdrlen + tcph->doff*4;
 
+    FILE *Register;
+    Register = fopen ( "registroTrafico.csv", "a" );
+    fprintf(Register, "TCP;%ld;\n", Size - sizeof(*tcph) );
+    fclose(Register);
+
+
     printf("\n\n***********************TCP Packet*************************\n");
 
     //print_ip_header(Buffer,Size);

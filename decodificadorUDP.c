@@ -13,6 +13,12 @@ void UDPdecoder(const u_char *Buffer , int Size)
 
     struct udphdr *udph = (struct udphdr*)(Buffer);
 
+    FILE *Register;
+    Register = fopen ( "registroTrafico.csv", "a" );
+    fprintf(Register, "UDP;%ld;\n",Size - sizeof(*udph) );
+    fclose(Register);
+
+
     int header_size =  sizeof(struct ethhdr) + iphdrlen + sizeof udph;
 
     printf("\n\n***********************UDP Packet*************************\n");
