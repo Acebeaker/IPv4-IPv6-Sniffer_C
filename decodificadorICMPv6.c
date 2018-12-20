@@ -10,10 +10,7 @@ void ICMPv6decoder(const u_char *bytes, int size)
     u_char *payload;
     int dataLength = 0;
 
-    //get icmp6 header
     struct icmp6_hdr* header_icmp6 = (struct icmp6_hdr*)(bytes);
-
-    //get and print out payload data
 
     FILE *Register;
     Register = fopen ( "registroTrafico.csv", "a" );

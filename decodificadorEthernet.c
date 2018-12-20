@@ -3,10 +3,6 @@
 #include <pcap/pcap.h>
 #include <arpa/inet.h>
 #include "decodificadores.h"
-//#include "decodificadorIPV4.c"
-//#include "decodificadorIPV6.c"
-//#include "decodificadorARP.c"
-
 
 int ethernet_decoder(const u_char *bytes, bpf_u_int32 dataLength)
 {
@@ -20,7 +16,6 @@ int ethernet_decoder(const u_char *bytes, bpf_u_int32 dataLength)
       ip_decoder(bytes + sizeof(*ethernetStruct), dataLength - sizeof(*ethernetStruct));
       break;
     case ETHERTYPE_ARP:
-      //printf("Es del tipo ARP\n");
       arpDecoder(bytes + sizeof(*ethernetStruct), dataLength - sizeof(*ethernetStruct));
       break;
     case ETHERTYPE_IPV6:

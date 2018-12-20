@@ -5,33 +5,10 @@
 #include <arpa/inet.h>
 #include <ctype.h>
 #include "decodificadores.h"
-//#include <netinet/ether.h>
 
-/*#include <net/ethernet.h>
-#include <netinet/ether.h>
-
-#include <netinet/in.h>
-#include <net/if_arp.h>
-
-#include <netinet/ip.h>
-
-#include </usr/include/netinet/ip6.h>
-
-#include<netinet/tcp.h>
-
-#include<netinet/udp.h>
-
-#include<netinet/ip_icmp.h>
-
-#include <netinet/icmp6.h>*/
-//#include "decodificadorEthernet.c"
 #define LENGTH_CAPTURE 2000
 
-
-
 void pcap_handler_callback(u_char * arg, const struct pcap_pkthdr *h, const u_char *bytes);
-
-
 
 int main(int argc, char **argv)
 {
@@ -52,9 +29,6 @@ int main(int argc, char **argv)
 
 void pcap_handler_callback(u_char * arg, const struct pcap_pkthdr *h, const u_char *bytes){
     printf("\nLongitud de la captura: %u\nLongitud del Paquete: %u\n", h->caplen, h->len);
-    //if ((h->caplen) == (h->len))
-    //{
-    	ethernet_decoder(bytes, h->caplen);
-    //}
 
+    ethernet_decoder(bytes, h->caplen);
 }

@@ -4,10 +4,6 @@
 #include <arpa/inet.h>
 #include <string.h>
 #include "decodificadores.h"
-//#include "decodificadorTCP.c"
-//#include "decodificadorUDP.c"
-//#include "decodificadorICMP.c"
-
 
 int ip_decoder(const u_char *bytes, bpf_u_int32 dataLength)
 {

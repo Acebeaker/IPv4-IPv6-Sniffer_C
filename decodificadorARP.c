@@ -16,7 +16,6 @@ int arpDecoder(const u_char *bytes, bpf_u_int32 dataLength)
 	printf("Format Of Protocol Address: %u\n", headerARP->ar_pro);
 	printf("Length Of Hardware Address: %u\n", headerARP->ar_hln);
 	printf("Length Of Protocol Address: %u\n", headerARP->ar_pln);
-	//printf("Sender hardware address: %s\n", headerARP->__ar_sha);
 	printf("ARP opcode: %u\n", headerARP->ar_op);
 
 		printf("\nSender MAC: ");

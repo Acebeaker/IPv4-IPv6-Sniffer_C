@@ -7,9 +7,6 @@ void UDPdecoder(const u_char *Buffer , int Size)
 {
 
     unsigned short iphdrlen;
-/*
-    struct iphdr *iph = (struct iphdr *)(Buffer +  sizeof(struct ethhdr));
-    iphdrlen = iph->ihl*4;*/
 
     struct udphdr *udph = (struct udphdr*)(Buffer);
 
@@ -23,8 +20,6 @@ void UDPdecoder(const u_char *Buffer , int Size)
 
     printf("\n\n***********************UDP Packet*************************\n");
 
-    //print_ip_header(Buffer,Size);
-
     printf("\nUDP Header\n");
     printf("   |-Source Port      : %d\n" , ntohs(udph->source));
     printf("   |-Destination Port : %d\n" , ntohs(udph->dest));
@@ -32,16 +27,6 @@ void UDPdecoder(const u_char *Buffer , int Size)
     printf("   |-UDP Checksum     : %d\n" , ntohs(udph->check));
 
     printf("\n");
-  /*  printf(logfile , "IP Header\n");
-    //PrintData(Buffer , iphdrlen);
-
-    fprintf(logfile , "UDP Header\n");
-    //PrintData(Buffer+iphdrlen , sizeof udph);
-
-    printf(logfile , "Data Payload\n");
-*/
-    //Move the pointer ahead and reduce the size of string
-    //PrintData(Buffer + header_size , Size - header_size);
 
     printf("\n###########################################################\n");
 }
